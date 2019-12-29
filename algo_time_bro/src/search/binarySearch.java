@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class binarySearch {
-	public static List<Integer> sort(List<Integer> a){
-		 int n = a.size(); 
-	        
-
-	        for (int i = 0; i < n-1; i++) { 
+	public static List<Integer> sort(List<Integer> a,int n){
+      
+	       for (int i = 0; i < n-1; i++) { 
 	            for (int j = 0; j < n-i-1; j++) { 
 	                if (a.get(j) > a.get(j+1)) 
 	                { 
@@ -23,9 +21,11 @@ public class binarySearch {
 	        }
 		return a;
 	}
-	public static int rank(int key,List<Integer> a) {
+
+	
+	public static int rank(int key,List<Integer> a,int hi) {
 		int lo =0;
-		int hi = a.size()-1;
+		hi = hi -1;
 		while (lo <= hi) {
 		int mid=lo+(hi-lo)/2;
 		if(key<a.get(mid))hi=mid-1;
@@ -48,11 +48,11 @@ public class binarySearch {
 			in1 = input.nextInt();
 			arr1.add(in1);
 		}
-         arr1= sort(arr1);
+         arr1= sort(arr1,num);
         System.out.println(arr1);
          System.out.println("insert the number to be searched");
 		 int key = input.nextInt();
-			if(rank(key,arr1)<0) {
+			if(rank(key,arr1,num)<0) {
 				System.out.println("number is not present");
 			}
 			else{
